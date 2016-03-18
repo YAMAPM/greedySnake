@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>贪吃蛇</title>
+    <style>
+        .clearfix {
+            *zoom: 1;
+        }
+        .clearfix:before,
+        .clearfix:after {
+            display: table;
+            line-height: 0;
+            content: "";
+        }
+        .clearfix:after {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<div align="center" class="clearfix" style="position: absolute;top:50%;left: 50%;margin-left: -200px;margin-top:-300px;">
+    <h3>贪吃蛇游戏</h3>
+
+    <div id="panel" class="clearfix" tabindex="0">
+        <canvas id="myCanvas" width="400" height="400" style="border:1px solid #e56c0c"></canvas>
+    </div>
+    <div style="height: 50px;width: 100px;float: left;text-align: left">分数：</div>
+    <div id="score" class="clearfix" style="width:300px;height: 50px;padding-left: 0px;float:left;">0
+    </div>
+    <div>
+        <button id="start">开始</button>
+        <button id="stop">停止</button>
+    </div>
+</div>
+<script src="main.js"></script>
+<script>
+    var gameEnergy = new Energy('myCanvas');
+    var start = document.getElementById('start');
+    start.onclick = function(e){
+        gameEnergy.startGame(1);
+        document.getElementById('panel').focus();
+        if(gameEnergy.moveHandler){
+            this.disabled = true;
+        }
+    }
+    var stop = document.getElementById('stop');
+    stop.onclick = function(){
+        gameEnergy.stop();
+        start.disabled = false;
+    }
+</script>
+</body>
+</html>
