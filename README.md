@@ -1,2 +1,2 @@
 # greedySnake
-this is a easy greedy snake demo
+this is an easy greedy snake demo
